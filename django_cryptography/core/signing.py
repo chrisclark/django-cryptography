@@ -24,10 +24,13 @@ from ..utils.crypto import HASHES, InvalidAlgorithm, constant_time_compare, salt
 try:
     from django.core.signing import b62_decode, b62_encode  # type: ignore
 except ImportError:
-    from django.utils import baseconv
+    from django.utils import baseconv  # type: ignore
 
     # Required for Django 3.2 support
-    b62_decode, b62_encode = baseconv.base62.decode, baseconv.base62.encode
+    (b62_decode, b62_encode) = (
+        baseconv.base62.decode,
+        baseconv.base62.encode,
+    )  # type: ignore
 
 __all__ = [
     "BadSignature",

@@ -1,7 +1,5 @@
 import datetime
-from typing import Any, Optional, Union
-
-from typing_extensions import Literal, Protocol
+from typing import Any, Literal, Optional, Protocol, Union
 
 Algorithm = Literal[
     "blake2b",
